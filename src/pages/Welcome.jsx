@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Welcome.css'; // Create and import a CSS file for styling
+import './Welcome.css'; // Import the CSS for styling
+import logo from '../assets/logo.png'; // Update this path to where your logo is stored
 
 const Welcome = () => {
   return (
     <div className="welcome-container">
-      <h1>Welcome to Art for a Change Plantshop</h1>
-      <p>Support our cause by planting trees and enjoy music tracks from Harmony for Earth.</p>
-      <img src="/path/to/earth-image.jpg" alt="Earth" className="earth-image" /> {/* Make sure to replace with actual path */}
+      <img src={logo} alt="Harmony for Earth Logo" className="logo" />
+      <h1 className="welcome-text">Welcome to Harmony for Earth</h1>
       <Link to="/plant-a-tree">
-        <button className="plant-button">Plant a Tree Now</button>
+        <button className="start-button">Get Started</button>
       </Link>
     </div>
   );

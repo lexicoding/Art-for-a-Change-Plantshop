@@ -1,19 +1,18 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { addItem } from '../redux/cartSlice';
-import './PlantCard.css'; // Create and import a CSS file for styling
+import { useCart } from '../context/CartContext'; // Import the useCart hook
+import './PlantCard.css'; // Ensure this file exists and is properly styled
 
 const PlantCard = ({ plant }) => {
-  const dispatch = useDispatch();
+  const { addToCart } = useCart();
 
   const handleAddToCart = () => {
-    dispatch(addItem({ ...plant, quantity: 1 }));
+    addToCart(plant);
   };
 
   return (
     <div className="plant-card">
       <h3>{plant.name}</h3>
-      <p>€{plant.price}</p>
+      <p>${plant.price}</p>
       <button onClick={handleAddToCart}>Add to Cart</button>
     </div>
   );
